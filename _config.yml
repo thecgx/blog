@@ -1,0 +1,83 @@
+# ----------------------------
+# 基础配置
+# ----------------------------
+title: "极简知识库"
+url: "https://yourusername.github.io"
+description: "专注技术沉淀的极简空间"
+theme: jekyll-theme-minimal
+timezone: Asia/Shanghai
+
+# ----------------------------
+# 导航系统（满足需求1）
+# ----------------------------
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+header_pages:
+  - topics/web-development.md
+  - topics/data-science.md
+  - topics/design-system.md
+
+navigation:
+  - name: "技术栈"
+    url: /topics/web-development
+    icon: fas fa-code
+  - name: "数据科学"
+    url: /topics/data-science
+    icon: fas fa-chart-line
+  - name: "设计系统"
+    url: /topics/design-system
+    icon: fas fa-palette
+
+# ----------------------------
+# 内容管理系统（满足需求2、3）
+# ----------------------------
+collections:
+  articles:
+    output: true
+    permalink: /:collection/:path/
+
+category_archive:
+  type: liquid
+  path: /categories/
+  sort_order: reverse-chronological
+
+categories:
+  - name: "技术栈"
+    slug: web-development
+    description: "前端开发与工程化实践"
+  - name: "数据科学"
+    slug: data-science
+    description: "机器学习与数据分析" 
+  - name: "设计系统"
+    slug: design-system
+    description: "用户体验与交互设计"
+
+# ----------------------------
+# 评论系统（满足需求4）
+# ----------------------------
+disqus:
+  shortname: your-disqus-shortname
+
+gitalk:
+  clientID: your-github-app-id
+  clientSecret: your-github-app-secret
+  repo: comments-repo
+  owner: yourusername
+  admin: yourusername
+  distractionFreeMode: true
+
+# ----------------------------
+# 展示配置
+# ----------------------------
+paginate: 5
+paginate_path: "/page:num/"
+excerpt_separator: <!--more-->
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
